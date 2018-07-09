@@ -2,7 +2,11 @@
   "name": "brain-games-madclicker88",
   "version": "1.0.0",
   "description": "brain games project",
-  "main": "index.js",
+  "keywords": [
+    "brain-games",
+    "brain",
+    "madclicker88"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "babel-node": "babel-node",
@@ -30,5 +34,8 @@
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-0": "^6.24.1"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.9"
   }
 }
