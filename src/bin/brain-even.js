@@ -14,14 +14,13 @@ const evenQuizz = (name) => {
     const userAnswer = readlineSync.question(`Question: ${num} \nYour answer: `);
     const answerValue = (userAnswer === 'yes');
     const isEven = !(num % 2);
+    const wrongAnswerMsg = () => console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${isEven}'. \nLet's try again, ${name}!`);
     if (userAnswer !== 'yes' && userAnswer !== 'no') {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${isEven}'. \nLet's try again, ${name}!`);
+      wrongAnswerMsg();
       return;
     }
-
-
     if (answerValue !== isEven) {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${isEven}'. \nLet's try again, ${name}!`);
+      wrongAnswerMsg();
     } else {
       console.log('Correct!');
       worker(randomNum(), questSize - 1);
