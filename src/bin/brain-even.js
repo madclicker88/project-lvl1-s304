@@ -1,4 +1,5 @@
 import readlineSync from 'readline-sync';
+import { welcome, name as userName } from './brain-games';
 
 const QUESTIONS_SIZE = 3;
 
@@ -29,4 +30,5 @@ const evenQuizz = (name) => {
   worker(randomNum(), QUESTIONS_SIZE);
 };
 
-export default evenQuizz;
+welcome();
+evenQuizz(userName);
