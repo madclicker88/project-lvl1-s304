@@ -1,7 +1,5 @@
 import readlineSync from 'readline-sync';
 
-const QUESTIONS_SIZE = 3;
-
 export const welcome = () => console.log('Welcome to the Brain Games! ');
 
 export const getName = () => readlineSync.question('May I have your name? ');
@@ -10,7 +8,11 @@ export const greeting = (name) => {
   console.log(`Hello, ${name}!\n`);
 };
 
-export const answerEvenText = () => console.log('Answer "yes" if number even otherwise answer "no".');
+// even //
+
+const QUESTIONS_SIZE = 3;
+
+export const evenGreetingText = () => console.log('Answer "yes" if number even otherwise answer "no".');
 
 export const evenQuiz = (name) => {
   const randomNum = () => parseInt(Math.random() * 100, 10);
@@ -37,3 +39,5 @@ export const evenQuiz = (name) => {
   };
   worker(randomNum(), QUESTIONS_SIZE);
 };
+
+// calc //

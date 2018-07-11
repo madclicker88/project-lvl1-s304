@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 import {
-  welcome, greeting, getName, answerEvenText, evenQuiz,
+  welcome, greeting, getName, evenGreetingText, evenQuiz,
 } from '..';
 
 welcome();
-answerEvenText();
+evenGreetingText();
 const userName = getName();
 greeting(userName);
 evenQuiz(userName);
