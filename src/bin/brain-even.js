@@ -1,8 +1,10 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
-import { welcome, name as userName } from './brain-games';
+import { welcome, greeting, getName } from '..';
 
 const QUESTIONS_SIZE = 3;
+
+const answerEvenText = () => console.log('Answer "yes" if number even otherwise answer "no".');
 
 const evenQuizz = (name) => {
   const randomNum = () => parseInt(Math.random() * 100, 10);
@@ -30,5 +32,9 @@ const evenQuizz = (name) => {
   worker(randomNum(), QUESTIONS_SIZE);
 };
 
+
 welcome();
+answerEvenText();
+const userName = getName();
+greeting(userName);
 evenQuizz(userName);
