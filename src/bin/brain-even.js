@@ -1,10 +1,4 @@
 #!/usr/bin/env node
-import {
-  welcome, greeting, getName, evenGreetingText, evenQuiz,
-} from '..';
+import even from '../games/even';
 
-welcome();
-evenGreetingText();
-const userName = getName();
-greeting(userName);
-evenQuiz(userName);
+even();

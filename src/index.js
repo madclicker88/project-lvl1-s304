@@ -1,43 +1,28 @@
 import readlineSync from 'readline-sync';
 
-export const welcome = () => console.log('Welcome to the Brain Games! ');
+const rounds = 3;
 
-export const getName = () => readlineSync.question('May I have your name? ');
+const base = (game, rule) => {
+  console.log('Welcome to the Brain Games! ');
+  console.log(rule);
+  const userName = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${userName}!\n`);
 
-export const greeting = (name) => {
-  console.log(`Hello, ${name}!\n`);
-};
-
-// even //
-
-const QUESTIONS_SIZE = 3;
-
-export const evenGreetingText = () => console.log('Answer "yes" if number even otherwise answer "no".');
-
-export const evenQuiz = (name) => {
-  const randomNum = () => parseInt(Math.random() * 100, 10);
-
-  const worker = (num, questSize) => {
-    if (questSize === 0) {
-      console.log(`Congratulations,  ${name}!`);
+  const round = (roundNum) => {
+    if (roundNum === 0) {
+      console.log(`Congratulations, ${userName}!`);
       return;
     }
-    const userAnswer = readlineSync.question(`Question: ${num} \nYour answer: `);
-    const answerValue = (userAnswer === 'yes');
-    const isEven = !(num % 2);
-    const wrongAnswerMsg = () => console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${isEven}'. \nLet's try again, ${name}!`);
-    if (userAnswer !== 'yes' && userAnswer !== 'no') {
-      wrongAnswerMsg();
-      return;
-    }
-    if (answerValue !== isEven) {
-      wrongAnswerMsg();
-    } else {
+    const { question, answer } = game();
+    const userAnswer = readlineSync.question(`Question: ${question}\nAnswer: `);
+    if (userAnswer === answer) {
       console.log('Correct!');
-      worker(randomNum(), questSize - 1);
+      round(roundNum - 1);
+    } else {
+      console.log(`'${userAnswer}' is wrong answer ;(. \nCorrect answer was '${answer}'. \nLet's try again, ${userName}!`);
     }
   };
-  worker(randomNum(), QUESTIONS_SIZE);
+  round(rounds);
 };
 
-// calc //
+export default base;

@@ -1,6 +1,4 @@
 #!/usr/bin/env node
-import { welcome, greeting, getName } from '..';
+import greeting from '../simple-greeting';
 
-
-welcome();
-greeting(getName());
+greeting();
