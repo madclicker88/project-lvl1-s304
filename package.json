@@ -20,6 +20,7 @@
   },
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
+    "brain-calc": "dist/bin/brain-calc.js",
     "brain-even": "dist/bin/brain-even.js"
   },
   "files": [
