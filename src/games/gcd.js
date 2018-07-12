@@ -1,5 +1,5 @@
-import randomNum from '../randomNum';
-import base from '..';
+import { randomNum } from '../utils';
+import engine from '..';
 
 const rule = 'Find the greatest common divisor of given numbers.';
 const gcd = (a, b) => {
@@ -17,4 +17,4 @@ const game = () => {
   };
 };
 
-export default () => base(game, rule);
+export default () => engine(game, rule);
