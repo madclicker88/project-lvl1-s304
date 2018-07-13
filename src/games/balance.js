@@ -6,15 +6,14 @@ const MAX = 10000;
 const num = randomNum(MAX, MIN);
 const rule = 'Balance the given number.';
 
-
-const toArray = n => n.toString().split('').map(i => parseInt(i, 10));
-const toNumber = arr => arr.sort().join('');
+const numberToArray = n => n.toString().split('').map(i => parseInt(i, 10));
+const arrayToNumber = arr => arr.join('');
 
 const balance = (number) => {
   const iter = (digits) => {
     const minDigit = Math.min(...digits);
     const maxDigit = Math.max(...digits);
-    if (maxDigit - minDigit <= 1) return digits;
+    if (maxDigit - minDigit <= 1) return digits.sort();
 
     const tempDigitsArray = digits.map((digit) => {
       if (digit === minDigit) return digit + 1;
@@ -23,7 +22,7 @@ const balance = (number) => {
     });
     return iter(tempDigitsArray);
   };
-  return toNumber(iter(toArray(number)));
+  return arrayToNumber(iter(numberToArray(number)));
 };
 
 const game = () => ({
