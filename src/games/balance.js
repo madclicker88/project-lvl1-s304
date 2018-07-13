@@ -3,6 +3,7 @@ import engine from '..';
 
 const MIN = 100;
 const MAX = 10000;
+const num = randomNum(MAX, MIN);
 const rule = 'Balance the given number.';
 
 
@@ -25,12 +26,9 @@ const balance = (number) => {
   return toNumber(iter(toArray(number)));
 };
 
-const game = () => {
-  const num = randomNum(MAX, MIN);
-  return {
-    question: num,
-    answer: balance(num),
-  };
-};
+const game = () => ({
+  question: num,
+  answer: balance(num),
+});
 
 export default () => engine(game, rule);
