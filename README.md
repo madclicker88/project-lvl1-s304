@@ -13,14 +13,12 @@ List of games:
 * brain-progression
 * brain-prime
 
-###Install
-
+### Install
 ```
 npm install -g brain-games-madclicker88
 ```
 
-###Usage
-
+### Usage
 To launch the game, enter the name of the game in CLI, e.g.:
 ```
 brain-progression
