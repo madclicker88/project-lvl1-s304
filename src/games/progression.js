@@ -4,6 +4,7 @@ import engine from '..';
 const PROGRESSION_LENGTH = 10;
 
 const rule = 'What number is missing in this progression?';
+const hideNumber = (progression, i) => progression.map((value, index) => (index === i ? '..' : value));
 
 const makeProgression = () => {
   const PROGRESSION_STEP = randomNum(10, 1);
@@ -18,11 +19,10 @@ const makeProgression = () => {
 
 const game = () => {
   const progressionArray = makeProgression();
-  const hidden = String(progressionArray.splice(randomNum(10), 1, '..'));
-
+  const indexToHide = randomNum(9, 0);
   return {
-    question: progressionArray.join(' '),
-    answer: hidden,
+    question: hideNumber(progressionArray, indexToHide).join(' '),
+    answer: String(progressionArray[indexToHide]),
   };
 };
 
