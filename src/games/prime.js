@@ -1,16 +1,17 @@
 import { randomNum } from '../utils';
 import engine from '..';
 
-const MIN_DIVISOR = 2;
-const rule = '';
+const minDivisor = 1;
+const rule = 'Answer "yes" if number is prime otherwise answer "no".';
 
 const isPrime = (num) => {
+  if (num < 2) return false;
   const iter = (i) => {
     if (i === num) return true;
     if (num % i === 0 && i < num) return false;
     return iter(i + 1);
   };
-  return iter(MIN_DIVISOR);
+  return iter(minDivisor);
 };
 
 const game = () => {
