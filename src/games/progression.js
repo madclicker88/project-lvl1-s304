@@ -8,7 +8,7 @@ const hideNumber = (progression, i) => progression.map((value, index) => (index 
 
 const makeProgression = (size, start, step) => Array(size)
   .fill(null)
-  .map((_, index) => start + index * step);
+  .map((val, index) => start + index * step);
 
 const game = () => {
   const progressionStep = randomNum(10, 1);
